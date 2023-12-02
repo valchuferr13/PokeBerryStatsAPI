@@ -1,0 +1,2 @@
+# PokeBerryStatsAPI
+A Django-based REST API for aggregating and analyzing statistics of Berries from the Pokémon universe. Utilizes external Pokémon data sources to provide detailed stats including growth times, frequency, and more. Features Docker containerization, caching for enhanced performance, and a histogram visualization endpoint using Matplotlib. Developed with Python and tested with pytest for reliability and efficiency. Open for contributions and further development.
