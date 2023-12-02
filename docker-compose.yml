@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  pokeberries:
+    build: .
+    image: pokeberries_app
+    command: python /app/manage.py runserver 0.0.0.0:8000
+    ports:
+      - "${APP_PORT}:8000"
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    tty: true
+    networks:
+      - pokeberries_network
+
+networks:
+  pokeberries_network:
+    driver: bridge
