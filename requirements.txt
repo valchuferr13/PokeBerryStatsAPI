@@ -1,1 +1,7 @@
 Django==4.2.7
+matplotlib==3.8.2
+numpy==1.26.2
+pytest==7.4.3
+pytest-django==4.7.0
+python-dotenv==1.0.0
+requests==2.31.0

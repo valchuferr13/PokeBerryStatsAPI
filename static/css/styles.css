@@ -1,0 +1,158 @@
+body {
+    background-image: url('../background.jpg');
+    background-size: cover;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    background-blend-mode: overlay;
+    font-family: 'Roboto', sans-serif;
+}
+
+@media (max-width: 768px) {
+    .berry-item {
+        width: 48%;
+    }
+
+    .berry-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .stats, .content-column, .content, .frequency-table {
+        width: 90%;
+    }
+
+    body, .stats p, .stats .frequency-time {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .berry-item {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .berry-item span {
+        font-size: smaller;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.berry-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0;
+}
+
+.berry-item {
+    width: 23%;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.berry-item span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.berry-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.stats {
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stats h2 a {
+    color: #333;
+    text-decoration: none;
+}
+
+.stats h2 a:hover {
+    text-decoration: underline;
+}
+
+.stats p, .stats .frequency-time {
+    color: #1c1c1c;
+    line-height: 2;
+    font-weight: bold;
+}
+
+.content-column {
+    background-color: rgba(224, 255, 224, 0.85);
+    width: 70%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.content {
+    background-color: rgba(242, 242, 242, 0.5);
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.frequency-table {
+    width: 60%;
+    margin: 20px auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f2f2f2;
+}
+
+.frequency-table th,
+.frequency-table td {
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+}
+
+.frequency-table th {
+    background-color: rgba(113, 39, 52, 0.3)
+}
+
+.frequency-table th:first-child {
+    border-top-left-radius: 5px;
+}
+
+.frequency-table th:last-child {
+    border-top-right-radius: 5px;
+}
+
+.frequency-table tr:last-child td:first-child {
+    border-bottom-left-radius: 5px;
+}
+
+.frequency-table tr:last-child td:last-child {
+    border-bottom-right-radius: 5px;
+}

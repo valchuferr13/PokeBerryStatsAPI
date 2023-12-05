@@ -1,3 +1,8 @@
 from django.db import models
 
-# Create your models here.
+class Berry(models.Model):
+    name = models.CharField(max_length=100)
+    growth_time = models.IntegerField()
+
+    def __str__(self):
+        return self.name

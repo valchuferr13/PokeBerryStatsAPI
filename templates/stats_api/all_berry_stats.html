@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berry Stats</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+<body>
+    <div class="content">
+        <h1>Berry Statistics</h1>
+        <div class="berry-grid" id="berry-grid"></div>
+
+        <div class="stats">
+            <h2>Time Statistics (in hours)</h2>
+            <div id="time-stats"></div>
+
+            <h2><a href="{% url 'histogram' %}">Frequency of Growth Times</a></h2>
+            <table class="frequency-table" id="frequency-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Frequency</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            const data = JSON.parse('{{ data|escapejs }}');
+
+            const berryGrid = document.getElementById('berry-grid');
+            data.berries_names.forEach(function(berry) {
+                const berryDiv = document.createElement('div');
+                berryDiv.classList.add('berry-item');
+                berryDiv.innerHTML = `
+                    <img src="{% static 'iconos/' %}${berry}.png" alt="${berry}" class="berry-icon">
+                    <span>${berry}</span>
+                `;
+                berryGrid.appendChild(berryDiv);
+            });
+
+            const timeStats = document.getElementById('time-stats');
+            timeStats.innerHTML = `
+                <p>Minimum Growth Time: ${data.min_growth_time}</p>
+                <p>Median Growth Time: ${data.median_growth_time}</p>
+                <p>Maximum Growth Time: ${data.max_growth_time}</p>
+                <p>Variance of Growth Time: ${data.variance_growth_time}</p>
+                <p>Mean Growth Time: ${data.mean_growth_time}</p>
+            `;
+
+            const frequencyTableBody = document.getElementById('frequency-table').querySelector('tbody');
+            Object.entries(data.frequency_growth_time).forEach(([time, frequency]) => {
+                const row = frequencyTableBody.insertRow();
+                row.insertCell(0).textContent = time;
+                row.insertCell(1).textContent = frequency;
+            });
+        });
+    </script>
+</body>
+</html>
